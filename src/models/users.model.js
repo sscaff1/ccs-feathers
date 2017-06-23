@@ -8,6 +8,10 @@ module.exports = function(app) {
     name: { type: String },
     email: { type: String },
     facebookId: { type: String },
+    photo: { type: String },
+    gender: { type: String, enum: ['male', 'female'] },
+    isAdmin: { type: Boolean, default: false },
+    signedWaiver: { type: Boolean, default: false },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });
