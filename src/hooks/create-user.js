@@ -4,22 +4,23 @@
 module.exports = function(options = {}) {
   // eslint-disable-line no-unused-vars
   return function(hook) {
-    const { facebook } = hook.data;
-    const { facebookId } = facebook;
-    const { profile } = facebook;
-    const { displayName: name, gender } = profile;
-    const email = profile.emails[0].value;
-    hook.data = Object.assign(
-      {},
-      {
-        name,
-        facebookId,
-        email,
-        gender,
+    const { facebook, facebookId } = hook.data;
+    return this.find({ facebookId }).then(user => {
+      if (user.data.length < 1) {
+        const { profile } = facebook;
+        const { displayName: name, gender } = profile;
+        const email = profile.emails[0].value;
+        hook.data = Object.assign(
+          {},
+          {
+            name,
+            facebookId,
+            email,
+            gender,
+          }
+        );
       }
-    );
-    // Hooks can either return nothing or a promise
-    // that resolves with the `hook` object for asynchronous operations
-    return Promise.resolve(hook);
+      return Promise.resolve(hook);
+    });
   };
 };
