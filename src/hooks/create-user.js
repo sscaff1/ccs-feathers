@@ -20,7 +20,7 @@ module.exports = function(options = {}) {
           }
         );
       }
-      return Promise.resolve(hook);
+      return hook;
     });
   };
 };
