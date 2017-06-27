@@ -18,8 +18,8 @@ module.exports = {
     find: [authenticate('jwt')],
     get: [...restrict],
     create: [createUser()],
-    update: [...restrict, updateUser()],
-    patch: [...restrict],
+    update: [...restrict],
+    patch: [...restrict, updateUser()],
     remove: [...restrict],
   },
 
