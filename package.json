@@ -4,27 +4,29 @@
   "version": "0.0.0",
   "homepage": "",
   "main": "src",
-  "keywords": ["feathers"],
+  "keywords": [
+    "feathers"
+  ],
   "author": {
     "name": "Steven Scaffidi",
-    "email": "sscaff1@gmail.com",
+    "email": "sscaff1@gmail.com"
   },
   "contributors": [],
   "bugs": {},
   "directories": {
     "lib": "src",
-    "test": "test/",
+    "test": "test/"
   },
   "engines": {
     "node": ">= 6.0.0",
-    "npm": ">= 3.0.0",
+    "npm": ">= 3.0.0"
   },
   "scripts": {
     "test": "npm run eslint && npm run mocha",
     "eslint": "eslint src/. test/. --config .eslintrc.json",
     "start": "node src/",
     "production": "NODE_ENV=production node src/",
-    "mocha": "mocha test/ --recursive",
+    "mocha": "mocha test/ --recursive"
   },
   "dependencies": {
     "aws-sdk": "^2.77.0",
@@ -48,12 +50,12 @@
     "passport-facebook": "^2.1.1",
     "s3-blob-store": "^2.0.1",
     "serve-favicon": "^2.4.3",
-    "winston": "^2.3.1",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "eslint": "^4.0.0",
     "mocha": "^3.4.2",
     "request": "^2.81.0",
-    "request-promise": "^4.2.1",
-  },
+    "request-promise": "^4.2.1"
+  }
 }
