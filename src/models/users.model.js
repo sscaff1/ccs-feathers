@@ -12,6 +12,7 @@ module.exports = function(app) {
     photo: { type: String },
     gender: { type: String, enum: ['male', 'female'] },
     phone: { type: String },
+    dob: { type: Date },
     teams: [String],
     signedDate: { type: Date },
     isAdmin: { type: Boolean, default: false },
