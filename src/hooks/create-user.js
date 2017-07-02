@@ -8,12 +8,13 @@ module.exports = function(options = {}) {
     return this.find({ facebookId }).then(user => {
       if (user.data.length < 1) {
         const { profile } = facebook;
-        const { displayName: name, gender } = profile;
+        const { name, gender } = profile;
         const email = profile.emails[0].value;
         hook.data = Object.assign(
           {},
           {
-            name,
+            firstName: name.givenName,
+            lastName: name.familyName,
             facebookId,
             email,
             gender,
