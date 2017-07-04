@@ -5,7 +5,7 @@ module.exports = function (options = {}) {
   // eslint-disable-line no-unused-vars
   return function (hook) {
     const { facebook, facebookId } = hook.data;
-    return this.find({ facebookId }).then(user => {
+    return this.find({ query: { facebookId } }).then(user => {
       if (user.data.length < 1) {
         const { profile } = facebook;
         const { name, gender, emails } = profile;
