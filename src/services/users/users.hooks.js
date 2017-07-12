@@ -3,6 +3,7 @@ const commonHooks = require('feathers-hooks-common');
 const { restrictToOwner } = require('feathers-authentication-hooks');
 const createUser = require('../../hooks/create-user');
 const updateUser = require('../../hooks/update-user');
+const adminFindUsers = require('../../hooks/admin-find-users');
 
 const restrict = [
   authenticate('jwt'),
@@ -15,7 +16,7 @@ const restrict = [
 module.exports = {
   before: {
     all: [],
-    find: [authenticate('jwt')],
+    find: [authenticate('jwt'), adminFindUsers()],
     get: [...restrict],
     create: [createUser()],
     update: [...restrict],
