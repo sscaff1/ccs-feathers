@@ -29,6 +29,7 @@ function initFormListener() {
       description: this.description.value,
     };
     dealService.create(data);
+    this.reset();
   });
 }
 

@@ -5,13 +5,13 @@ const isNotAdmin = () => hook => !hook.params.user.isAdmin;
 
 module.exports = {
   before: {
-    all: [authenticate('jwt')],
+    all: [],
     find: [],
     get: [disallow()],
-    create: [iff(isNotAdmin(), disallow())],
+    create: [authenticate('jwt'), iff(isNotAdmin(), disallow())],
     update: [disallow()],
     patch: [disallow()],
-    remove: [iff(isNotAdmin(), disallow())],
+    remove: [authenticate('jwt'), iff(isNotAdmin(), disallow())],
   },
 
   after: {
