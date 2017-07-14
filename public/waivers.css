@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+}
+#deals {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.deal {
+  align-content: center;
+  border-radius: 5px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  height: 150px;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  width: 30%;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.close {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  text-decoration: none;
+}
+.hidden {
+  display: none;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+label {
+  display: none;
+}
+input[type="text"] {
+  padding: 10px 5px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+input[type="submit"] {
+  font-size: 16px;
+  background-color: #45b8ff;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+h3,
+p {
+  margin: 0;
+}

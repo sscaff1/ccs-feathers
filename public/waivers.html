@@ -2,11 +2,32 @@
 
 <head>
   <title>Crescent City Soccer | Waiver App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=0" />
+  <link rel="stylesheet" href="waivers.css">
 </head>
 
 <body>
   <h1>You've been logged in successfully!</h1>
-  <script src="app.js"></script>
+  <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+  <script src="//npmcdn.com/feathers-client@^2.0.0-pre.1/dist/feathers.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="common.js"></script>
+  <script src="waiver.js"></script>
+  <form id="addDeal" class=" dealForm hidden">
+    <div class="field">
+      <label for="title">Title</label>
+      <input type="text" name="title" placeholder="Deal Title" />
+    </div>
+    <div class="field">
+      <label for="Description">Description</label>
+      <input type="text" name="description" placeholder="Deal Description" />
+    </div>
+    <div class="field">
+      <input type="submit" value="Submit" />
+    </div>
+  </form>
+  <h2 class="hidden">Current Deals</h2>
+  <div id="deals"></div>
 </body>
 
 </html>
