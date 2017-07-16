@@ -72,7 +72,7 @@ client
       const dealDiv = document.getElementById('deals');
       const hiddenDivs = document.querySelectorAll('.hidden');
       hiddenDivs.forEach(div => div.classList.remove('hidden'));
-      const dealsHTML = deals.data.map(getDealHTML).join('');
+      const dealsHTML = deals.map(getDealHTML).join('');
       dealDiv.innerHTML = dealsHTML;
       initCloseTags();
       initFormListener();
