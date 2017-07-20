@@ -14,13 +14,18 @@
   border: 1px solid black;
   display: flex;
   flex-direction: column;
-  height: 150px;
+  height: 250px;
   justify-content: center;
   text-align: center;
   position: relative;
-  width: 30%;
+  width: 45%;
   margin-right: 10px;
   margin-bottom: 10px;
+}
+.dealImg {
+  margin: 0 auto;
+  max-width: 100%;
+  max-height: 50%;
 }
 .close {
   position: absolute;
@@ -38,6 +43,12 @@
 }
 label {
   display: none;
+}
+.showLabel {
+  display: block;
+  margin-left: 5px;
+  margin-bottom: 5px;
+  font-size: 18px;
 }
 input[type="text"] {
   padding: 10px 5px;

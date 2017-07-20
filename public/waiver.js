@@ -1,6 +1,8 @@
 const jwt = window.localStorage['feathers-jwt'];
 const userService = client.service('users');
 const dealService = client.service('deals');
+const uploadService = client.service('uploads');
+const fileReader = new FileReader();
 
 dealService.on('created', addDeal);
 dealService.on('removed', removeDeal);
@@ -22,14 +24,20 @@ function initCloseTags() {
 
 function initFormListener() {
   const form = document.getElementById('addDeal');
+  const loading = document.querySelector('.loading');
+  loading.classList.remove('hidden');
   form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const data = {
-      title: this.title.value,
-      description: this.description.value,
+    fileReader.readAsArrayBuffer(this.photo.files[0]);
+    fileReader.onload = () => {
+      const data = {
+        title: this.title.value,
+        description: this.description.value,
+        photo: fileReader.result,
+      };
+      dealService.create(data);
+      this.reset();
     };
-    dealService.create(data);
-    this.reset();
   });
 }
 
@@ -51,6 +59,7 @@ function getDealHTML(deal) {
   return `
     <div class="deal">
       <h3>${deal.title}</h3>
+      ${deal.photo ? `<img src="${deal.photo}" class="dealImg" />` : ''}
       <p>${deal.description}</p>
       <a href="#" class="close" data-id="${deal._id}">&times;</a>
     </div>

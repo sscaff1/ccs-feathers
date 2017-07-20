@@ -8,6 +8,7 @@ module.exports = function(app) {
   const deals = new Schema({
     title: { type: String, required: true, trim: true },
     description: { type: String, required: true, trim: true },
+    photo: { type: String },
     createdAt: { type: Date, default: Date.now },
     updatedAt: { type: Date, default: Date.now },
   });
