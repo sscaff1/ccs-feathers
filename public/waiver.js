@@ -1,7 +1,6 @@
 const jwt = window.localStorage['feathers-jwt'];
 const userService = client.service('users');
 const dealService = client.service('deals');
-const uploadService = client.service('uploads');
 const fileReader = new FileReader();
 
 dealService.on('created', addDeal);
@@ -35,7 +34,7 @@ function initFormListener() {
         description: this.description.value,
         photo: fileReader.result,
       };
-      dealService.create(data);
+      dealService.create(data).then(() => loading.classList.add('hidden'));
       this.reset();
     };
   });
