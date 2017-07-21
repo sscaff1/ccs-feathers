@@ -16,7 +16,7 @@ module.exports = function(options = {}) {
       return jimp
         .read(hook.data.photo)
         .then(photo => {
-          photo.resize(600, jimp.AUTO).quality(80);
+          photo.resize(jimp.AUTO, 600).quality(80);
           return getBase64(photo).then(uri =>
             hook.app.service('uploads').create({ uri })
           );
