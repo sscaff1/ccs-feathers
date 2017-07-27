@@ -86,4 +86,6 @@ client
       initFormListener();
     }
   })
-  .catch(err => console.log(err));
+  .catch(() => {
+    window.localStorage.removeItem('feathers-jwt');
+  });
